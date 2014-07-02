@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CID="d21f2469b3b84eb68d95a44b88c96d38"
+ADDR="https://api.instagram.com/v1/$1"
+shift
+
+ADDR="$ADDR?client_id=$CID"
+
+# if [[ $# -gt 0 ]]; then
+	# ADDR="$ADDR?$1"
+	# shift
+# fi
+
+while [[ $# -gt 0 ]]; do
+	ADDR="$ADDR&$1"
+	shift
+done
+
+# curl -H 'Accept: application/json' -w 'code: %{http_code}\n' -b `cat _cookie` "$ADDR"
+# echo curl -w 'code: %{http_code}\n' -b `cat _cookie` "$ADDR"
+curl -L -w '\ncode: %{http_code}\nlast url:%{redirect_url}\n'  "$ADDR"

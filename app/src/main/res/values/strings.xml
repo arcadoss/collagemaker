@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CollageMaker</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_nickname">Введите ник</string>
+    <string name="create_collage">Давай коллаж</string>
+    <string name="title_activity_collage_creation">CollageCreation</string>
+	<string name="comm_failed">Ошибка связи с сервером</string>
+	<string name="enter_username">Введите имя пользователя</string>
+	<string name="user_not_found">Пользователя не найдено</string>
+
+</resources>

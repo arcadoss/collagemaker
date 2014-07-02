@@ -1,0 +1,69 @@
+buildscript {
+   repositories {
+      mavenCentral()
+   }
+   dependencies {
+      classpath 'com.android.tools.build:gradle:0.9.+'
+      classpath 'com.neenbedankt.gradle.plugins:android-apt:1.2'
+   }
+}
+apply plugin: 'android'
+apply plugin: 'android-apt'
+
+repositories {
+   mavenCentral()
+   mavenLocal()
+}
+
+android {
+   compileSdkVersion 19
+   buildToolsVersion "19.1.0"
+
+   defaultConfig {
+      minSdkVersion 8
+      targetSdkVersion 19
+      versionCode 1
+      versionName "1.0"
+   }
+   buildTypes {
+      release {
+         runProguard false
+         proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+      }
+      debug {
+         debuggable true
+         jniDebugBuild false
+         runProguard false
+      }
+   }
+   sourceSets {
+      main {
+         manifest.srcFile 'src/main/AndroidManifest.xml'
+         java.srcDirs = ['src/main/java', 'GENERATED_FOLDER']
+         resources.srcDirs = ['src/main/resources']
+         res.srcDirs = ['src/main/res']
+         assets.srcDirs = ['src/main/assets']
+      }
+   }
+}
+
+apt {
+   arguments {
+      androidManifestFile variant.processResources.manifestFile
+      resourcePackageName 'ru.arcadoss.collagemaker'
+   }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:19.1.0'
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.2'
+    compile 'com.squareup.retrofit:retrofit:1.6.0'
+   compile('de.keyboardsurfer.android.widget:crouton:1.8.4') {
+      // exclusion is not neccessary, but generally a good idea.
+      exclude group: 'com.google.android', module: 'support-v4'
+   }
+   compile 'org.androidannotations:androidannotations-api:3.0.1'
+   apt "org.androidannotations:androidannotations:3.0.1"
+   compile fileTree(dir: 'libs', include: ['*.jar'])
+}
