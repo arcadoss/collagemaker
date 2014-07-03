@@ -1,5 +1,6 @@
 package ru.arcadoss.collagemaker.web;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import retrofit.RequestInterceptor;
@@ -18,6 +19,12 @@ public class InstagramAdapter {
 		}
 	};
 
+	private static final Gson GSON_CONVERTER = new GsonBuilder()
+			.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+			.registerTypeAdapter(EntriesListWrapper.class, new EntriesListWrapper.Deserializer())
+			.create();
+
+
 	public static final RestAdapter get() {
 		RestAdapter adapter = new RestAdapter.Builder()
 				.setRequestInterceptor(HEADER_INJECTOR)
@@ -29,6 +36,7 @@ public class InstagramAdapter {
 	}
 
 	public static final Instagram getService() {
-		return get().create(Instagram.class);
+		return get()
+				.create(Instagram.class);
 	}
 }

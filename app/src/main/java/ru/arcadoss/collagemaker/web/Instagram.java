@@ -15,5 +15,5 @@ public interface Instagram {
 	void findUser(@Query("q") String query, Callback<Envelope<List<User>>> cb);
 
 	@GET("/users/{userid}/media/recent")
-	void getTopPhotos(@Path("userid") String userid, Callback<Envelope<>>);
+	void getTopPhotos(@Path("userid") String userid, Callback<Envelope<EntriesListWrapper>> cb);
 }
