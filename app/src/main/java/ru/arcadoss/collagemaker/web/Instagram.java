@@ -2,6 +2,9 @@ package ru.arcadoss.collagemaker.web;
 
 import retrofit.Callback;
 import retrofit.http.*;
+import ru.arcadoss.collagemaker.json.EntriesListWrapper;
+import ru.arcadoss.collagemaker.json.Envelope;
+import ru.arcadoss.collagemaker.json.User;
 
 import java.util.List;
 

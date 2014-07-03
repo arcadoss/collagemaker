@@ -1,13 +1,14 @@
 package ru.arcadoss.collagemaker.web;
 
 import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
+import ru.arcadoss.collagemaker.json.EntriesListWrapper;
 
 /**
  * Created by arcturus at 02.07.14
@@ -22,17 +23,17 @@ public class InstagramAdapter {
 		}
 	};
 
-	private static final Gson GSON_CONVERTER = new GsonBuilder()
-			.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-			.registerTypeAdapter(EntriesListWrapper.class, new EntriesListWrapper.Deserializer())
-			.create();
-
 
 	private static final JacksonConverter JACKSON_CONVERTER;
 	static {
 		JsonFactory factory = new JsonFactory();
 		ObjectMapper mapper = new ObjectMapper(factory);
+		SimpleModule module = new SimpleModule("EntryListWrapper Deserializer", new Version(1, 1, 1, null));
+		module.addDeserializer(EntriesListWrapper.class, new EntriesListWrapper.Deserializer());
+
+		mapper.setPropertyNamingStrategy(PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.registerModule(module);
 
 		JACKSON_CONVERTER = new JacksonConverter(mapper, factory);
 	}
@@ -41,7 +42,7 @@ public class InstagramAdapter {
 		RestAdapter adapter = new RestAdapter.Builder()
 				.setRequestInterceptor(HEADER_INJECTOR)
 				.setEndpoint(Instagram.ENDPOINT)
-				.setLogLevel(RestAdapter.LogLevel.FULL)
+				.setLogLevel(RestAdapter.LogLevel.NONE)
 				.setConverter(JACKSON_CONVERTER)
 				.build();
 
@@ -51,5 +52,9 @@ public class InstagramAdapter {
 	public static final Instagram getService() {
 		return get()
 				.create(Instagram.class);
+	}
+
+	public static JacksonConverter getConverter() {
+		return JACKSON_CONVERTER;
 	}
 }

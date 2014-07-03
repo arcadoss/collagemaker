@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
-import ru.arcadoss.collagemaker.web.User;
+import ru.arcadoss.collagemaker.json.User;
 
 
 @EViewGroup(R.layout.view_user_account)

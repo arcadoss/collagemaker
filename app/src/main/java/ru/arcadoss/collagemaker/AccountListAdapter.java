@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
-import ru.arcadoss.collagemaker.web.User;
+import ru.arcadoss.collagemaker.json.User;
 
 import java.util.List;
 

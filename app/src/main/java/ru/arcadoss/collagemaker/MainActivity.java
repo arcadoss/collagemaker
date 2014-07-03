@@ -1,13 +1,8 @@
 package ru.arcadoss.collagemaker;
 
-import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ListView;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -16,10 +11,10 @@ import org.androidannotations.annotations.*;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import ru.arcadoss.collagemaker.web.Envelope;
+import ru.arcadoss.collagemaker.json.Envelope;
 import ru.arcadoss.collagemaker.web.Instagram;
 import ru.arcadoss.collagemaker.web.InstagramAdapter;
-import ru.arcadoss.collagemaker.web.User;
+import ru.arcadoss.collagemaker.json.User;
 
 import java.util.List;
 

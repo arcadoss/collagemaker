@@ -2,11 +2,7 @@ package ru.arcadoss.collagemaker;
 
 import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -17,6 +13,10 @@ import org.androidannotations.annotations.*;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import ru.arcadoss.collagemaker.json.EntriesListWrapper;
+import ru.arcadoss.collagemaker.json.Entry;
+import ru.arcadoss.collagemaker.json.Envelope;
+import ru.arcadoss.collagemaker.json.User;
 import ru.arcadoss.collagemaker.web.*;
 
 import java.util.ArrayList;
@@ -59,8 +59,9 @@ public class CollageCreation extends ActionBarActivity {
 		GalleryAdapter(Context context, List<Entry> entryList) {
 			this.context = context;
 			urls = new ArrayList<String>(entryList.size());
+			Log.d(DT, String.format("GalleryAdapter content: [%s]", Utils.joinStrings(urls, ",")));
 			for (Entry entry : entryList) {
-				urls.add(entry.photos.lowResolution.url);
+				urls.add(entry.photos.thumbnail.url);
 			}
 		}
 
