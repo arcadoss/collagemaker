@@ -76,7 +76,10 @@
     <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
+    <orderEntry type="library" exported="" name="jackson-databind-2.4.1" level="project" />
+    <orderEntry type="library" exported="" name="jackson-core-2.4.1" level="project" />
     <orderEntry type="library" exported="" name="androidannotations-api-3.0.1" level="project" />
+    <orderEntry type="library" exported="" name="jackson-annotations-2.4.1" level="project" />
     <orderEntry type="library" exported="" name="crouton-1.8.4" level="project" />
     <orderEntry type="library" exported="" name="universal-image-loader-1.9.2" level="project" />
   </component>
