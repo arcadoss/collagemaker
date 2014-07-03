@@ -10,5 +10,8 @@
 	<string name="comm_failed">Ошибка связи с сервером</string>
 	<string name="enter_username">Введите имя пользователя</string>
 	<string name="user_not_found">Пользователя не найдено</string>
+	<string name="user_without_photos">У пользователя нет фотографий</string>
+	<string name="close_access">Доступ к фотографиям закрыт</string>
+	<string name="maker_title_temp">Фото %1$s</string>
 
 </resources>
