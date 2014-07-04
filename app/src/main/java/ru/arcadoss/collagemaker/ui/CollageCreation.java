@@ -1,4 +1,4 @@
-package ru.arcadoss.collagemaker;
+package ru.arcadoss.collagemaker.ui;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -20,6 +20,8 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.converter.ConversionException;
+import ru.arcadoss.collagemaker.R;
+import ru.arcadoss.collagemaker.Utils;
 import ru.arcadoss.collagemaker.json.EntriesListWrapper;
 import ru.arcadoss.collagemaker.json.Entry;
 import ru.arcadoss.collagemaker.json.Envelope;

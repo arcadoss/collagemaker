@@ -1,4 +1,4 @@
-package ru.arcadoss.collagemaker;
+package ru.arcadoss.collagemaker.ui.views;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="ru.arcadoss.collagemaker.MainActivity_"
+            android:name="ru.arcadoss.collagemaker.ui.MainActivity_"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ru.arcadoss.collagemaker.CollageCreation_"
+            android:name="ru.arcadoss.collagemaker.ui.CollageCreation_"
             android:label="@string/title_activity_collage_creation" >
         </activity>
     </application>
