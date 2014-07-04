@@ -42,7 +42,7 @@ public class InstagramAdapter {
 		RestAdapter adapter = new RestAdapter.Builder()
 				.setRequestInterceptor(HEADER_INJECTOR)
 				.setEndpoint(Instagram.ENDPOINT)
-				.setLogLevel(RestAdapter.LogLevel.FULL)
+				.setLogLevel(RestAdapter.LogLevel.NONE)
 				.setConverter(JACKSON_CONVERTER)
 				.build();
 

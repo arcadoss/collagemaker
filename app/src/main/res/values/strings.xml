@@ -13,5 +13,8 @@
 	<string name="user_without_photos">У пользователя нет фотографий</string>
 	<string name="close_access">Доступ к фотографиям закрыт</string>
 	<string name="maker_title_temp">Фото %1$s</string>
+	<string name="select_photo">Выберите фото через длительное нажатие</string>
+	<string name="send">Отправить</string>
+	<string name="send_with">Отправить сообщение с помощью</string>
 
 </resources>

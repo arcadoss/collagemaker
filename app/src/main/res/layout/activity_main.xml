@@ -16,6 +16,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/nickname"
 			android:hint="@string/enter_nickname"
+			android:singleLine="true"
 			/>
 	<ListView
 			android:layout_width="match_parent"
